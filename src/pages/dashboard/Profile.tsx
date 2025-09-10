@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useAuthStore } from '../../stores/authStore';
 import { api } from '../../api/services';
-import { AccountUpdateDto, UserProfileDto } from '../../types';
+import { AccountUpdateDto } from '../../types';
 
 const Profile = () => {
-    const { user, setUser, updateUser } = useAuthStore();
+    const { user, updateUser } = useAuthStore();
     const [loading, setLoading] = useState(false);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<AccountUpdateDto>();

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuthStore } from '../../stores/authStore';
 import { api } from '../../api/services';
-import { UserProfileDto } from '../../types';
 import { toast } from 'react-hot-toast';
 
 const Dashboard = () => {
@@ -132,7 +131,7 @@ const Dashboard = () => {
             <div className="bg-white shadow rounded-lg">
                 <div className="px-4 py-5 sm:p-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
-                        빠른 작업
+                        바로가기
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <a
@@ -193,7 +192,7 @@ const Dashboard = () => {
                             <div className="mt-8">
                                 <h3 className="text-lg font-medium">
                                     <span className="absolute inset-0" aria-hidden="true" />
-                                    개인정보 검색
+                                    유출된 개인정보 검색
                                 </h3>
                                 <p className="mt-2 text-sm text-gray-500">
                                     개인정보 유출 여부를 확인하세요
@@ -203,7 +202,7 @@ const Dashboard = () => {
 
                         {(role === 'CONTRIBUTOR' || role === 'ADMIN') && (
                             <a
-                                href="/data/submit"
+                                href="/contribution/apply"
                                 className="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 rounded-lg border border-gray-300 hover:border-gray-400"
                             >
                                 <div>
@@ -216,7 +215,7 @@ const Dashboard = () => {
                                 <div className="mt-8">
                                     <h3 className="text-lg font-medium">
                                         <span className="absolute inset-0" aria-hidden="true" />
-                                        데이터 제출
+                                        기여자 신청
                                     </h3>
                                     <p className="mt-2 text-sm text-gray-500">
                                         새로운 보안 데이터를 제출하세요

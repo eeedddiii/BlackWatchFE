@@ -41,11 +41,3 @@ export interface ContributorInfoDto {
     clientSecret: ClientSecretInfoDto;
     status: string;
 }
-
-export interface ContributorSessionDto {
-    sessionId: string;
-    clientId: string;
-    ip: string;
-    createdAt: string;
-    expiresAt: string;
-}

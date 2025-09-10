@@ -14,16 +14,14 @@ const DashboardLayout = () => {
     };
 
     const navigation = [
-        { name: '대시보드', href: '/dashboard', current: location.pathname === '/dashboard' },
-        { name: '유출 데이터', href: '/data/leaked', current: location.pathname.startsWith('/data/leaked') },
+        { name: 'Main Page', href: '/dashboard', current: location.pathname === '/dashboard' },
         { name: '취약점 데이터', href: '/data/vulnerability', current: location.pathname.startsWith('/data/vulnerability') },
-        { name: '개인정보 검색', href: '/data/personal-search', current: location.pathname === '/data/personal-search' },
+        { name: '개인정보 유출 조회', href: '/data/personal-search', current: location.pathname === '/data/personal-search' },
     ];
 
     if (role === 'CONTRIBUTOR' || role === 'ADMIN') {
         navigation.push(
-            { name: '데이터 제출', href: '/data/submit', current: location.pathname === '/data/submit' },
-            { name: '기여자 대시보드', href: '/contribution/dashboard', current: location.pathname === '/contribution/dashboard' },
+            { name: '기여자 신청', href: '/contribution/apply', current: location.pathname === '/contribution/apply' },
             { name: '세션 관리', href: '/contribution/sessions', current: location.pathname === '/contribution/sessions' }
         );
     } else {
@@ -67,8 +65,12 @@ const DashboardLayout = () => {
             {/* Desktop sidebar */}
             <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
                 <div className="flex flex-col flex-grow bg-white shadow-lg">
-                    <div className="flex items-center h-16 px-4 bg-gray-900">
-                        <span className="text-white font-semibold text-xl">BlackWatch</span>
+                    <div className="flex items-center h-16 px-12 bg-white">
+                        <img
+                            src="/assets/logo.png"
+                            alt="BlackWatch Logo"
+                            className="h-10 w-auto"
+                        />
                     </div>
                     <nav className="flex-1 px-4 py-4 space-y-1">
                         {navigation.map((item) => (
@@ -104,9 +106,9 @@ const DashboardLayout = () => {
 
                         <div className="flex items-center space-x-4">
                             <div className="text-sm text-gray-700">
-                                {user?.username} ({role})
+                                {user?.username}님 ({role})
                             </div>
-                            <div className="relative">
+                            <div className="relative flex items-center space-x-2">
                                 <Link
                                     to="/dashboard/profile"
                                     className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
